@@ -22,7 +22,7 @@ public class GeneratePdfService {
 	{
 		Map<String,String> data = new HashMap<String,String>();
 	    data.put("name",model.getName());
-	    pdfGenaratorUtil.createPdf("test",data); 
+	    pdfGenaratorUtil.createPdf("test",data,model.getReference()); 
 	}
 
 }
