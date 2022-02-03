@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.thymeleaf.TemplateEngine;
@@ -16,6 +18,9 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 @Component
 public class PdfGenaratorUtil {
+	@Value("${file.path}")
+	private String path;
+	
 	@Autowired
 	private TemplateEngine templateEngine;
 	public void createPdf(String templateName, Map map) throws Exception {
@@ -33,7 +38,7 @@ public class PdfGenaratorUtil {
 		  FileOutputStream os = null;
 		  String fileName ="hello";
 	        try {
-	            final File outputFile = File.createTempFile(fileName, ".pdf",new File("C:\\Users\\dmansouri\\Desktop\\full"));
+	            final File outputFile = File.createTempFile(fileName, ".pdf",new File(path));
 	            os = new FileOutputStream(outputFile);
 
 	            ITextRenderer renderer = new ITextRenderer();
