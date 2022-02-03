@@ -4,6 +4,8 @@ public class PdfModel {
 	
 	private String name;
 	
+	private String reference;
+	
 public PdfModel() {
 	// TODO Auto-generated constructor stub
 }
@@ -15,6 +17,10 @@ public PdfModel() {
 
 	public String getName() {
 		return name;
+	}
+	
+	public String getReference() {
+		return reference;
 	}
 	
 	

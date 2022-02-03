@@ -23,7 +23,7 @@ public class PdfGenaratorUtil {
 	
 	@Autowired
 	private TemplateEngine templateEngine;
-	public void createPdf(String templateName, Map map) throws Exception {
+	public void createPdf(String templateName, Map map ,String fileName) throws Exception {
 		Assert.notNull(templateName, "The templateName can not be null");
 		Context ctx = new Context();
 		if (map != null) {
@@ -36,7 +36,6 @@ public class PdfGenaratorUtil {
 		
 		String processedHtml = templateEngine.process(templateName, ctx);
 		  FileOutputStream os = null;
-		  String fileName ="hello";
 	        try {
 	            final File outputFile = File.createTempFile(fileName, ".pdf",new File(path));
 	            os = new FileOutputStream(outputFile);
@@ -56,4 +55,7 @@ public class PdfGenaratorUtil {
 	            }
 	        }
 	}
+	
+	
+	
 }
